@@ -23,8 +23,8 @@ export const coupleData = {
     'Gracias por estar, por hacer todo más bonito y por ser parte de esta historia.',
   ],
   story: {
-    image: '/assets/images/couple/hero.webp',
-    alt: 'Pareja de demostración contemplando el atardecer junto al mar',
+    image: '/assets/images/couple/chapter-beginning.webp',
+    alt: 'Pareja de demostración sonriendo con ternura al atardecer',
     title: 'Nuestra historia',
     lead: 'Dos personas. Infinitos momentos.',
   },
@@ -37,8 +37,8 @@ export const coupleData = {
         'Y que, si pudiera volver a aquel primer instante, volvería a elegir encontrarte.',
       ],
       images: [
-        { src: '/assets/images/couple/hero.webp', alt: 'Pareja de demostración en su primer recuerdo frente al mar' },
-        { src: '/assets/images/couple/days.webp', alt: 'Pareja de demostración compartiendo una tarde en una cafetería' },
+        { src: '/assets/images/couple/chapter-beginning.webp', alt: 'Pareja de demostración en el comienzo de su historia' },
+        { src: '/assets/images/couple/hero.webp', alt: 'Pareja de demostración contemplando el atardecer junto al mar', position: '50% 42%' },
       ],
     },
     {
@@ -49,8 +49,8 @@ export const coupleData = {
         'A veces, lo más bonito del día es simplemente compartirlo contigo.',
       ],
       images: [
-        { src: '/assets/images/couple/days.webp', alt: 'Pareja de demostración riendo durante uno de sus días cotidianos' },
-        { src: '/assets/images/couple/hero.webp', alt: 'Pareja de demostración disfrutando de una escapada juntos', position: '50% 72%' },
+        { src: '/assets/images/couple/chapter-everyday.webp', alt: 'Pareja de demostración cocinando juntos en casa' },
+        { src: '/assets/images/couple/chapter-getaway.webp', alt: 'Pareja de demostración paseando durante una escapada', position: '50% 52%' },
       ],
     },
     {
@@ -61,7 +61,7 @@ export const coupleData = {
         'Me basta con saber que estás ahí, y que por un momento el mundo puede esperar.',
       ],
       images: [
-        { src: '/assets/images/couple/hero.webp', alt: 'Pareja de demostración compartiendo un momento tranquilo', position: '46% 58%' },
+        { src: '/assets/images/couple/chapter-beside-you.webp', alt: 'Pareja de demostración abrazada junto a una ventana con lluvia', position: '50% 43%' },
         { src: '/assets/images/couple/days.webp', alt: 'Mirada cómplice de una pareja de demostración', position: '50% 33%' },
       ],
     },
@@ -73,14 +73,14 @@ export const coupleData = {
         'Porque cuando pienso en lo que viene, no necesito que sea perfecto. Me basta con que sigamos encontrando motivos para elegirnos.',
       ],
       images: [
+        { src: '/assets/images/couple/chapter-future-field.webp', alt: 'Pareja de demostración mirando un amanecer juntos' },
         { src: '/assets/images/couple/future.webp', alt: 'Pareja de demostración caminando hacia el horizonte' },
-        { src: '/assets/images/couple/hero.webp', alt: 'Pareja de demostración imaginando nuevos recuerdos', position: '50% 38%' },
       ],
     },
   ] satisfies CoupleChapter[],
   final: {
-    image: '/assets/images/couple/future.webp',
-    alt: 'Pareja de demostración caminando hacia un atardecer compartido',
+    image: '/assets/images/couple/chapter-future-field.webp',
+    alt: 'Pareja de demostración mirando hacia un futuro compartido',
     body: [
       'Quería regalarte algo que no se quedara en un solo día.',
       'Un lugar al que puedas volver cuando quieras recordar lo que hemos vivido, lo que somos y todo lo que todavía nos queda por escribir.',

@@ -21,6 +21,7 @@ function MusicControl() {
     if (audioRef.current.paused) { await audioRef.current.play(); setPlaying(true); }
     else { audioRef.current.pause(); setPlaying(false); }
   }
+  if (!hasAudio) return null;
   return <div className="music-wrap">
     {hasAudio ? <audio ref={audioRef} src={coupleData.audioSrc ?? undefined} loop /> : null}
     <button className="music-control" type="button" onClick={toggleAudio} disabled={!hasAudio}
@@ -33,6 +34,7 @@ function MusicControl() {
 
 export default function Home() {
   const [opened, setOpened] = useState(false);
+  const [entered, setEntered] = useState(false);
 
   useEffect(() => {
     const nodes = [...document.querySelectorAll<HTMLElement>('[data-reveal]')];
@@ -45,28 +47,26 @@ export default function Home() {
   }, [opened]);
 
   function discoverStory() {
-    document.querySelector('#nuestra-historia')?.scrollIntoView({ behavior: 'smooth' });
+    setEntered(true);
+    requestAnimationFrame(() => document.querySelector('#nuestra-historia')?.scrollIntoView({ behavior: 'smooth' }));
   }
 
-  return <main className={`experience${opened ? ' experience--opened' : ''}`}>
+  function openExperience() {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+    setEntered(false);
+    setOpened(true);
+  }
+
+  return <main className={`experience${opened ? ' experience--opened' : ''}${entered ? ' experience--entered' : ''}`}>
     <MusicControl />
     <section className="cover" aria-labelledby="cover-title">
-      <WineLines />
-      <header className="cover__header"><Brand /><span>Historias · Recuerdos · Para siempre</span></header>
-      <div className="cover__side-note cover__side-note--left" aria-hidden="true">El amor también se guarda en detalles</div>
-      <div className="cover__side-note cover__side-note--right" aria-hidden="true">Fotografía que sientes</div>
+      <img className="cover__reference" src="/assets/images/cover/quiroz-parejas-entry.jpeg" alt="" aria-hidden="true" fetchPriority="high" />
+      <div className="cover__focus" aria-hidden="true" />
+      <h1 className="sr-only" id="cover-title">{coupleData.cover.title}</h1>
       <div className="gift-stage">
-        <p className="gift-stage__eyebrow">{coupleData.cover.eyebrow}</p>
-        <div className="envelope" aria-hidden="true">
-          <div className="envelope__back" />
-          <div className="envelope__letter-preview"><Brand compact /><span>Para ti</span></div>
-          <div className="envelope__flap" /><div className="envelope__front" /><WaxSeal />
-        </div>
-        <div className="gift-stage__copy">
-          <h1 id="cover-title">Algo especial <em>te espera</em></h1><span className="mini-rule" aria-hidden="true" />
-          <p>{coupleData.cover.description}</p>
-          <button className="open-button" type="button" onClick={() => setOpened(true)}><span>Abrir</span><span aria-hidden="true">→</span></button>
-        </div>
+        <button className="open-button open-button--scene" type="button" onClick={openExperience} aria-label="Abrir experiencia QUIROZ Parejas">
+          <span>Abrir</span><span aria-hidden="true">→</span>
+        </button>
       </div>
       <article className="letter" aria-hidden={!opened} aria-label="Carta personal">
         <Brand compact /><p className="letter__for">Para ti</p>
