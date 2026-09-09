@@ -1,7 +1,7 @@
 export type MemoryPhoto = { src: string; alt: string; position?: string };
 export type CoupleChapter = { number: string; title: string; body: string[]; images: MemoryPhoto[]; style: 'portrait' | 'split' | 'quiet' | 'travel' | 'letter' | 'final' };
 const p = (src: string, alt: string, position = '50% 50%'): MemoryPhoto => ({ src, alt, position });
-const photos = Array.from({ length: 10 }, (_, i) => p(`/assets/images/memories/photo-${String(i + 1).padStart(2, '0')}.${i === 0 ? 'jpeg' : 'png'}`, `Recuerdo ${i + 1} de Sofía y Damián`));
+const photos = Array.from({ length: 10 }, (_, i) => p(`/assets/images/memories/photo-${String(i + 1).padStart(2, '0')}.png`, `Recuerdo ${i + 1} de Sofía y Damián`));
 
 export const coupleData = {
   person1: 'Sofía', person2: 'Damián', date: 'Nuestro primer aniversario', audioSrc: null as string | null,
